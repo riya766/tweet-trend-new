@@ -1,13 +1,16 @@
 pipeline {
-    agent { label 'maven' }  // Slave node label yahan match hona chahiye
+    agent { label 'maven' }  // Slave node label match hona chahiye
+
+    environment {
+        PATH = "/opt/apache-maven-3.9.9/bin:$PATH"  // Maven ka path set kar rahe hain
+    }
 
     stages {
-        stage('Clone Repository') {
+        stage('Build') {
             steps {
-                git branch: 'main', url: 'https://github.com/riya766/tweet-trend-new.git'
+                sh 'mvn clean deploy'  // Maven command run karenge
             }
         }
-
-        
     }
 }
+
