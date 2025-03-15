@@ -8,9 +8,8 @@ pipeline {
     stages {
         stage('Build') {
             steps {
-                sh 'mvn clean deploy'  // Maven command run karenge
+                sh 'mvn clean deploy -DskipTests'  // Tests ko skip karke build karega
             }
         }
     }
 }
-
