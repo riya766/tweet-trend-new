@@ -1,6 +1,4 @@
-
-
-[A[Apipeline {
+pipeline {
     agent { label 'maven' }  // Slave node label match hona chahiye
 
     environment {
