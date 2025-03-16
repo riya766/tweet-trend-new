@@ -11,5 +11,17 @@ pipeline {
                 sh 'mvn clean deploy -DskipTests'  // Tests ko skip karke build karega
             }
         }
+
+        stage('SonarQube analysis') {
+            environment {
+                scannerHome = tool 'valaxy-sonar-scanner'
+            }
+            steps {
+                withSonarQubeEnv('sonarqube-server') {  
+                    sh "${scannerHome}/bin/sonar-scanner"
+                }
+            }
+        }
     }
 }
+
