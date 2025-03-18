@@ -1,4 +1,4 @@
-def registry = 'https://riya766.jfrog.io/artifactory'  // ✅ Correct URL 
+//def registry = 'https://riya766.jfrog.io/artifactory'  // ✅ Correct URL 
 
 pipeline {
     agent { label 'maven' }  // Slave node label match hona chahiye
@@ -26,7 +26,7 @@ pipeline {
         }
 
         
-        stage("Jar Publish") {
+      /*  stage("Jar Publish") {
             steps {
                 script {
                     echo '<--------------- Jar Publish Started --------------->'
@@ -37,7 +37,7 @@ pipeline {
                    def uploadSpec = """{
     "files": [
         {
-            "pattern": "jarstaging/**/*.jar",
+            "pattern": "jarstaging/***.jar",
             "target": "libs-release-local/com/valaxy/demo-workshop/",
             "flat": false
         }
@@ -52,7 +52,6 @@ pipeline {
                     echo '<--------------- Jar Publish Ended --------------->'
                 }
             }
-        }
-        
+        }*/  
     }
 }
