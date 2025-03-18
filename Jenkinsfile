@@ -1,4 +1,4 @@
-def registry = 'https://riya766.jfrog.io/artifactory'  // ✅ Correct URL
+// def registry = 'https://riya766.jfrog.io/artifactory'  // ✅ Correct URL 
 
 pipeline {
     agent { label 'maven' }  // Slave node label match hona chahiye
@@ -25,6 +25,7 @@ pipeline {
             }
         }
 
+        /*
         stage("Jar Publish") {
             steps {
                 script {
@@ -53,5 +54,6 @@ pipeline {
                 }
             }
         }
+        */
     }
 }
