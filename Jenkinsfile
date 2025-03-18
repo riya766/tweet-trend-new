@@ -34,17 +34,16 @@ pipeline {
                     def server = Artifactory.newServer(url: registry, credentialsId: "artifact-cred-access") // ✅ Correct URL usage
                     def properties = "buildid=${env.BUILD_ID},commitid=${GIT_COMMIT}"
                     
-                    def uploadSpec = """{
-                        "files": [
-                            {
-                                "pattern": "jarstaging/(*)",
-                                "target": "libs-release-local/",
-                                "flat": false,
-                                "props": "${properties}",
-                                "exclusions": [ "*.sha1", "*.md5" ]
-                            }
-                        ]
-                    }"""
+                   def uploadSpec = """{
+    "files": [
+        {
+            "pattern": "jarstaging/**/*.jar",
+            "target": "libs-release-local/com/valaxy/demo-workshop/",
+            "flat": false
+        }
+    ]
+}"""
+
 
                     def buildInfo = server.upload(uploadSpec)
                     buildInfo.collectEnv()  // ✅ Correct method call
