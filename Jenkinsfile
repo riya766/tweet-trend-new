@@ -61,7 +61,7 @@ pipeline {
                     sh "docker rm ttrend-container || true"
 
                     // Run new container
-                    sh "docker run -d --name ttrend-container -p 8080:8080 $DOCKERHUB_USERNAME/$DOCKER_IMAGE_NAME:latest"
+                    sh "docker run -d --name ttrend-container -p 8080:8000 $DOCKERHUB_USERNAME/$DOCKER_IMAGE_NAME:latest"
 
                     echo '<--------------- Deployment Completed --------------->'
                 }
