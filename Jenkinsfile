@@ -11,7 +11,7 @@ pipeline {
         stage('Build') {
             steps {
                 echo '<--------------- Building JAR --------------->'
-                sh 'mvn clean package -DskipTests'  // JAR build karega
+                sh 'mvn clean deploy -DskipTests'  // JAR build karega
             }
         }
 
