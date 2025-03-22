@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: valaxy-rtp
+  namespace: valaxy
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: valaxy-rtp
+  template:
+    metadata:
+      labels:
+        app: valaxy-rtp
+    spec:
+      containers:
+      - name: valaxy-rtp
+        image: riyaraina76/ttrend:latest
+        imagePullPolicy: Always
+        ports:
+        - containerPort: 8000
+
